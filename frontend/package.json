@@ -53,6 +53,6 @@
     "@iconify/icons-bxs": "^1.2.6",
     "@iconify/react": "^4.1.1"
   },
-  "proxy":"http://192.168.111.104:4001"
+  "proxy": "http://127.0.0.1:4001"
 
 }
