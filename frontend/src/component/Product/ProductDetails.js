@@ -3,20 +3,30 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getProductDetails } from "../../actions/productAction";
+import { clearErrors,getProductDetails } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import ReviewCard from "./ReviewCard.js"
+import Loader from '../layout/Loader/Loader.js'
+import {useAlert} from "react-alert"
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
+   const alert=useAlert();
+
   const { id } = useParams();
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
 
   useEffect(() => {
+    if(error)
+    {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
     dispatch(getProductDetails(id));
-  }, [dispatch, id]);
+  }, [dispatch, id,error,alert]);
 
   const options = {
     edit: false,
@@ -28,7 +38,9 @@ const ProductDetails = () => {
   };
 
   return (
-    <Fragment>
+  <Fragment>
+    {loading ?<Loader/>:(
+      <Fragment>
       <div className="ProductDetails">
         <div className="imageCarousel">
           <Carousel
@@ -61,13 +73,12 @@ const ProductDetails = () => {
             <ReactStars {...options} />
             <span>({product.numOfReviews} Reviews)</span>
           </div>
-
           <div className="detailsBlock-3">
             <h1>{`₹${product.price}`}</h1>
             <div className="detailsBlock-3-1">
               <div className="detailsBlock-3-1-1">
                 <button>-</button>
-                <input value="1" type="number" />
+                <input type="number" />
                 <button>+</button>
               </div>
               <button>Add to Cart</button>
@@ -84,7 +95,23 @@ const ProductDetails = () => {
           <button className="submitReview"> Submit Review</button>
         </div>
       </div>
+
+
+      <h3  className="reviewsHeading">REVIEWS</h3>
+      {
+        product.reviews && product.reviews[0] ? (
+       <div className="reviews">
+         {
+          product.reviews && product.reviews.map((review)=><ReviewCard review={review}/>)
+         }
+       </div>
+        ):(
+          <p className="noReviews"> No Reviews Yet</p>
+        )
+      }
     </Fragment>
+    )  }
+  </Fragment>
   );
 };
 
