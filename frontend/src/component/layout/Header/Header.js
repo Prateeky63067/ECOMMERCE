@@ -1,21 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Header.css";
 import { Icon } from "@iconify/react";
 import cartIcon from "@iconify/icons-bx/cart";
 import searchIcon from "@iconify/icons-bx/search";
 import userIcon from "@iconify/icons-bxs/user";
 import { NavLink, Link } from "react-router-dom";
+import Search from "../../Product/Search";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+  const [keyword, setKeyword] = useState("");
+  const navigate = useNavigate();
+  const searchSubmitHandler = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      navigate(`/products/${keyword}`);
+    } else {
+      navigate("/products");
+    }
+  };
   return (
     <>
-      <div>
-        <div className="overlay" />
+      <div >
+        <div className="overlay  " />
 
         <nav
           className="navbar navbar-expand-md navbar-light bg-light main-menu"
           style={{ boxShadow: "none", paddingBottom: 0 }}
         >
-          <div className="container">
+          <div className="container ">
             <button
               type="button"
               id="sidebarCollapse"
@@ -35,23 +47,17 @@ const Header = () => {
               </li>
             </ul>
             <div className="collapse navbar-collapse">
-              <form className="form-inline my-2 my-lg-0 mx-auto d-flex">
+         
+
+             <form className="form-inline my-2 my-lg-0 mx-auto d-flex" onSubmit={searchSubmitHandler}>
                 <input
                   className="form-control"
                   type="search"
                   placeholder="Search for products..."
                   aria-label="Search"
+                  onChange={(e) => setKeyword(e.target.value)}
                 />
-                <button className="btn btn-success my-2 my-sm-0" type="submit">
-                  <Icon
-                    icon={searchIcon}
-                    color="white"
-                    width="20"
-                    height="20"
-                    rotate={3}
-                    hFlip={true}
-                  />
-                </button>
+                <input className="Searchbtn" type="submit" value="Search" />
               </form>
               <ul className="navbar-nav">
                 <li className="nav-item">
@@ -82,8 +88,8 @@ const Header = () => {
             </div>
           </div>
         </nav>
-        <nav className="navbar navbar-expand-md navbar-light bg-light sub-menu">
-          <div className="container">
+        <nav className="  navbar navbar-expand-md navbar-light bg-light sub-menu">
+          <div className="container ">
             <div className="collapse navbar-collapse" id="navbar">
               <ul className="navbar-nav ">
                 <li className="nav-item ">
@@ -92,7 +98,7 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/product">
+                  <NavLink className="nav-link" to="/products">
                     Products
                   </NavLink>
                 </li>

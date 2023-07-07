@@ -4,6 +4,9 @@
     font-size: 1.15rem;
   }
   
+  .dummy{
+    background-color: red !important;
+  }
   .form-control {
     height: calc(2.5rem + 2px);
     padding: 0.5rem 1.5rem;
@@ -32,6 +35,22 @@
   .form-inline .btn {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+  .Searchbtn{
+    height: 8%;
+    border-radius: 0%;
+    background-color: rgb(55, 97, 214);
+    
+    border: none;
+    padding: 1vmax;
+    width: 10%;
+    font: 300 1.1vmax "Roboto";
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+  }
+  .Searchbtn:hover{
+    background-color: tomato;
   }
   
   /* Small devices (landscape phones, 576px and up) */
