@@ -6,6 +6,7 @@ import ProductDetails from "./component/Product/ProductDetails.js";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 // import Search from "./component/Product/Search.js"
 import Products from './component/Product/Products.js'
+
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
       <Route path='/products' element={<Products/>}/>
       <Route path='/products/:keyword' element={<Products/>}/>
       {/* <Route path='/search' element={<Search/>}/> */}
+      
       
       </Routes>
       <Footer/>
