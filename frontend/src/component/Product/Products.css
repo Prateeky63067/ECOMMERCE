@@ -1,3 +1,10 @@
+.productMain{
+ 
+  display: flex; 
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
 .productsHeading {
     margin: 2vmax auto;
     width: 15vw;
@@ -14,6 +21,8 @@
     padding: 0 5vmax;
     justify-content: center;
     min-height: 30vh;
+    
+    width: 80%;
   }
   .paginationBox {
     display: flex;
@@ -66,14 +75,36 @@
   .filterBox{
     width: 10vmax;
     position: absolute;
-    top: 15vmax;
-    left: 10vmax;
+    top: 21vmax;
+    left: 4vmax;
   }
+  .categoryBox{
+    padding: 0%;
+
+  }
+  .category-link{
+    list-style: none;
+    color: rgba(0,0,0,0.61);
+    font: 400 1.2vmax "Roboto";
+    margin: 0.4vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+   .category-link:hover{
+    color: tomato;
+   }
+   
   @media screen and (max-width: 600px) {
     .filterBox {
       width: 20vmax;
       position: static;
       margin: auto;
+    }
+    .page-link{
+      font: 300 1.7vmax "Roboto";
+    }
+    .category-link{
+      font: 400 2vmax "Roboto";
     }
   
   }
