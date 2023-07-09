@@ -73,7 +73,7 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item ml-md-3">
-                  <NavLink className="btn btn-primary" to="#">
+                  <NavLink className="btn btn-primary" to="/login">
                     <Icon
                       icon={userIcon}
                       color="white"
@@ -81,7 +81,7 @@ const Header = () => {
                       height="24"
                       hFlip={true}
                     />{" "}
-                    Log In / Register
+                    Log In
                   </NavLink>
                 </li>
               </ul>
