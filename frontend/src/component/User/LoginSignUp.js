@@ -1,14 +1,21 @@
-import React, { Fragment,useRef,useState } from "react";
+import React, { Fragment,useRef,useState ,useEffect} from "react";
 import "./LoginSignUp.css";
 import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face"
-
-
+import {useDispatch,useSelector} from "react-redux"
+import {clearErrors,login} from "../../actions/userAction"
+import {useAlert} from "react-alert"
+import { useNavigate } from "react-router-dom";
 
 const LoginSignUp = () => {
+  const navigate = useNavigate();
+    const dispatch=useDispatch();
+    const alert=useAlert();
+     const{error,loading,isAuthenticated} =useSelector(state=>state.user)
+
 
     const loginTab=useRef(null);
     const registerTab=useRef(null);
@@ -29,8 +36,10 @@ const LoginSignUp = () => {
     const[avatar,setAvatar]=useState();
     const[avatarPreview,setAvatarPreview]=useState("/Profile.png");
 
-    const loginSubmit=()=>{
-        console.log("Login form Submited");
+    
+    const loginSubmit=(e)=>{
+      e.preventDefault();
+        dispatch(login(loginEmail,loginPassword));
     }
 
     const registerSubmit=(e)=>{
@@ -58,6 +67,20 @@ const LoginSignUp = () => {
         setUser({...user,[e.target.name]:e.target.value})
     }
   }
+    
+  useEffect(() => {
+    if(error){
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+    if(isAuthenticated){
+      navigate("/account")
+    }
+  
+    
+  }, [dispatch,error,alert,isAuthenticated,navigate])
+  
+
 
     const switchTabs=(e,tab)=>{
         if (tab === "login") {
@@ -80,7 +103,8 @@ const LoginSignUp = () => {
 
 
   return (
-    <Fragment>
+   <Fragment>
+    {loading?<Loader/>: <Fragment>
       <div className="LoginSignUpContainer">
         <div className="LoginSignUpBox">
             <div>
@@ -171,7 +195,8 @@ const LoginSignUp = () => {
             </form>
         </div>
       </div>
-    </Fragment>
+    </Fragment>}
+   </Fragment>
   );
 };
 
