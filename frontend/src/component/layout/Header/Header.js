@@ -4,18 +4,18 @@ import { Icon } from "@iconify/react";
 import cartIcon from "@iconify/icons-bx/cart";
 import searchIcon from "@iconify/icons-bx/search";
 import userIcon from "@iconify/icons-bxs/user";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Search from "../../Product/Search";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 const Header = () => {
   const [keyword, setKeyword] = useState("");
-  const navigate = useNavigate();
+  const history = useHistory();
   const searchSubmitHandler = (e) => {
     e.preventDefault();
     if (keyword.trim()) {
-      navigate(`/products/${keyword}`);
+      history.push(`/products/${keyword}`);
     } else {
-      navigate("/products");
+      history.push("/products");
     }
   };
   return (
@@ -35,15 +35,15 @@ const Header = () => {
             >
               <i className="bx bx-menu icon-single" />
             </button>
-            <NavLink className="navbar-brand" to="/">
+            <Link className="navbar-brand" to="/">
               <img className="imglogo" src="./shubhlogo.png" alt="" />
-            </NavLink>
+            </Link>
             <ul className="navbar-nav ml-auto d-block d-md-none">
               <li className="nav-item">
-                <NavLink className="btn btn-link" to="#">
+                <Link className="btn btn-link" to="#">
                   <i class="fa-solid fa-cart-shopping"></i>{" "}
                   <span className="badge badge-danger">3</span>
-                </NavLink>
+                </Link>
               </li>
             </ul>
             <div className="collapse navbar-collapse">
@@ -61,7 +61,7 @@ const Header = () => {
               </form>
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <NavLink className="btn btn-link" to="#">
+                  <Link className="btn btn-link" to="#">
                     <Icon
                       icon={cartIcon}
                       color="green"
@@ -70,10 +70,10 @@ const Header = () => {
                       hFlip={true}
                     />
                     <span className="badge badge-danger">3</span>
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item ml-md-3">
-                  <NavLink className="btn btn-primary" to="/login">
+                  <Link className="btn btn-primary" to="/login">
                     <Icon
                       icon={userIcon}
                       color="white"
@@ -82,7 +82,7 @@ const Header = () => {
                       hFlip={true}
                     />{" "}
                     Log In
-                  </NavLink>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -93,37 +93,37 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbar">
               <ul className="navbar-nav ">
                 <li className="nav-item ">
-                  <NavLink className="nav-link" to="/">
+                  <Link className="nav-link" to="/">
                     Home 
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/products">
+                  <Link className="nav-link" to="/products">
                     Products
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/contact">
+                  <Link className="nav-link" to="/contact">
                     Contact
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/about">
+                  <Link className="nav-link" to="/about">
                     About
-                  </NavLink>
+                  </Link>
                 </li>
                 {/* <li className="nav-item dropdown">
-            <NavLink className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Support
-            </NavLink>
+            </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <NavLink className="dropdown-item" href="#">Delivery Information</NavLink>
-              <NavLink className="dropdown-item" href="#">Privacy Policy</NavLink>
-              <NavLink className="dropdown-item" href="#">Terms &amp; Conditions</NavLink>
+              <Link className="dropdown-item" href="#">Delivery Information</Link>
+              <Link className="dropdown-item" href="#">Privacy Policy</Link>
+              <Link className="dropdown-item" href="#">Terms &amp; Conditions</Link>
             </div>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" href="#">Contact</NavLink>
+            <Link className="nav-link" href="#">Contact</Link>
           </li> */}
               </ul>
             </div>
@@ -154,9 +154,9 @@ const Header = () => {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-10 pl-0">
-                  <NavLink className="btn btn-primary" href="#">
+                  <Link className="btn btn-primary" href="#">
                     <i className="bx bxs-user-circle mr-1" /> Log In
-                  </NavLink>
+                  </Link>
                 </div>
                 <div className="col-2 text-left">
                   <button
@@ -172,27 +172,27 @@ const Header = () => {
           </div>
           <ul className="list-unstyled components links">
             <li className="active">
-              <NavLink href="#">
+              <Link href="#">
                 <i className="bx bx-home mr-3" /> Home
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink href="#">
+              <Link href="#">
                 <i className="bx bx-carousel mr-3" /> Products
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink href="#">
+              <Link href="#">
                 <i className="bx bx-book-open mr-3" /> Schools
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink href="#">
+              <Link href="#">
                 <i className="bx bx-crown mr-3" /> Publishers
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink
+              <Link
                 href="#pageSubmenu"
                 data-toggle="collapse"
                 aria-expanded="false"
@@ -200,66 +200,66 @@ const Header = () => {
               >
                 <i className="bx bx-help-circle mr-3" />
                 Support
-              </NavLink>
+              </Link>
               <ul className="collapse list-unstyled" id="pageSubmenu">
                 <li>
-                  <NavLink href="#">Delivery Information</NavLink>
+                  <Link href="#">Delivery Information</Link>
                 </li>
                 <li>
-                  <NavLink href="#">Privacy Policy</NavLink>
+                  <Link href="#">Privacy Policy</Link>
                 </li>
                 <li>
-                  <NavLink href="#">Terms &amp; Conditions</NavLink>
+                  <Link href="#">Terms &amp; Conditions</Link>
                 </li>
               </ul>
             </li>
             <li>
-              <NavLink href="#">
+              <Link href="#">
                 <i className="bx bx-phone mr-3" /> Contact
-              </NavLink>
+              </Link>
             </li>
           </ul>
           <h6 className="text-uppercase mb-1">Categories</h6>
           <ul className="list-unstyled components mb-3">
             <li>
-              <NavLink href="#">Category 1</NavLink>
+              <Link href="#">Category 1</Link>
             </li>
             <li>
-              <NavLink href="#">Category 1</NavLink>
+              <Link href="#">Category 1</Link>
             </li>
             <li>
-              <NavLink href="#">Category 1</NavLink>
+              <Link href="#">Category 1</Link>
             </li>
             <li>
-              <NavLink href="#">Category 1</NavLink>
+              <Link href="#">Category 1</Link>
             </li>
             <li>
-              <NavLink href="#">Category 1</NavLink>
+              <Link href="#">Category 1</Link>
             </li>
             <li>
-              <NavLink href="#">Category 1</NavLink>
+              <Link href="#">Category 1</Link>
             </li>
           </ul>
           <ul className="social-icons">
             <li>
-              <NavLink href="#" target="_blank" title>
+              <Link href="#" target="_blank" title>
                 <i className="bx bxl-facebook-square" />
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink href="#" target="_blank" title>
+              <Link href="#" target="_blank" title>
                 <i className="bx bxl-twitter" />
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink href="#" target="_blank" title>
+              <Link href="#" target="_blank" title>
                 <i className="bx bxl-linkedin" />
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink href="#" target="_blank" title>
+              <Link href="#" target="_blank" title>
                 <i className="bx bxl-instagram" />
-              </NavLink>
+              </Link>
             </li>
           </ul>
         </nav>
