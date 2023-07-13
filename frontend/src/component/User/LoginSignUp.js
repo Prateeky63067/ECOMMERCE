@@ -10,7 +10,7 @@ import {clearErrors,login,register} from "../../actions/userAction"
 import {useAlert} from "react-alert"
 import { useHistory } from "react-router-dom";
 
-const LoginSignUp = () => {
+const LoginSignUp = ({location}) => {
   const history =useHistory ();
     const dispatch=useDispatch();
     const alert=useAlert();
@@ -68,17 +68,19 @@ const LoginSignUp = () => {
     }
   }
     
+const redirect=location.search?location.search.split("=")[1]:"/account";
+
   useEffect(() => {
     if(error){
       alert.error(error);
       dispatch(clearErrors());
     }
     if(isAuthenticated){
-      history.push("/account")
+      history.push(redirect)
     }
   
     
-  }, [dispatch,error,alert,isAuthenticated,history])
+  }, [dispatch,error,alert,isAuthenticated,history,redirect])
   
 
 
