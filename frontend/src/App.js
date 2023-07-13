@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect, useState } from "react";
 import React from "react";
 import Header from "./component/layout/Header/Header.js";
 import Footer from "./component/layout/Footer/Footer.js";
@@ -21,18 +22,31 @@ import ResetPassword from "./component/User/ResetPassword.js"
 import Cart from "./component/Cart/Cart.js"
 import Shipping from "./component/Cart/Shipping.js"
 import ConfirmOrder from "./component/Cart/ConfirmOrder.js"
+import Payment from "./component/Cart/Payment.js"
+import axios from "axios";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const [stripeApiKey, setStripeApiKey] = useState("");
 
-  React.useEffect(() => {
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapikey");
+
+    setStripeApiKey(data.stripeApiKey);
+    console.log(stripeApiKey);  
+  }
+  useEffect(() => {
     store.dispatch(loadUser());
+    getStripeApiKey();
   }, []);
   return (
     <>
        <Router>
       <Header />
         {isAuthenticated && <UserOptions user={user} />}
+        
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/product/:id" component={ProductDetails} />
@@ -47,6 +61,13 @@ function App() {
           <Route exact path="/cart" component={Cart} />
           <ProtectedRoute exact path="/shipping" component={Shipping} />
           <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+        
+          {stripeApiKey && (
+         <Elements stripe={loadStripe(stripeApiKey)}>
+          <ProtectedRoute exact path="/process/payment" component={Payment} />
+         </Elements>
+
+      )}
         </Switch>
         <Footer />
       </Router>
