@@ -61,7 +61,7 @@ const Header = () => {
               </form>
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link className="btn btn-link" to="#">
+                  <Link className="btn btn-link" to="/cart">
                     <Icon
                       icon={cartIcon}
                       color="green"

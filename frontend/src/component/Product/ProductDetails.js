@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect ,useState} from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./ProductDetails.css";
@@ -10,8 +10,10 @@ import ReviewCard from "./ReviewCard.js"
 import Loader from '../layout/Loader/Loader.js'
 import {useAlert} from "react-alert"
 import MetaData from "../layout/MetaData";
+import {addItemsToCart} from "../../actions/cartAction"
 
-const ProductDetails = () => {
+
+const ProductDetails = ({match}) => {
   const dispatch = useDispatch();
    const alert=useAlert();
 
@@ -36,6 +38,27 @@ const ProductDetails = () => {
     size: window.innerWidth < 600 ? 20 : 25,
     value: product.ratings,
     isHalf: true,
+  };
+  const [quantity, setQuantity] = useState(1);
+  
+
+  const increaseQuantity = () => {
+    if (product.Stock <= quantity) return;
+
+    const qty = quantity + 1;
+    setQuantity(qty);
+  };
+
+  const decreaseQuantity = () => {
+    if (1 >= quantity) return;
+
+    const qty = quantity - 1;
+    setQuantity(qty);
+  };
+
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(match.params.id, quantity));
+    alert.success("Item Added To Cart");
   };
 
   return (
@@ -79,11 +102,11 @@ const ProductDetails = () => {
             <h1>{`₹${product.price}`}</h1>
             <div className="detailsBlock-3-1">
               <div className="detailsBlock-3-1-1">
-                <button>-</button>
-                <input type="number" />
-                <button>+</button>
+                <button onClick={decreaseQuantity}>-</button>
+                <input readOnly className="inputVal" type="number" value={quantity}/>
+                <button onClick={increaseQuantity}>+</button>
               </div>
-              <button>Add to Cart</button>
+              <button onClick={addToCartHandler}>Add to Cart</button>
             </div>
             <p>
               Status: <b className={product.Stock< 1 ? "redColor": "greenColor"}>

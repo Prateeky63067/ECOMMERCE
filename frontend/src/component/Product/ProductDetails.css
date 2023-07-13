@@ -81,7 +81,7 @@
   }
   .detailsBlock-3-1-1 > input {
     border: none;
-    padding: 1.4vmax;
+    /* padding: 1.4vmax; */
     width: 2vmax;
     text-align: center;
     outline: none;
@@ -227,7 +227,7 @@
       }
     
       .detailsBlock-3-1-1 > input {
-        padding: 1.5vmax;
+        /* padding: 1.5vmax; */
         width: 3vmax;
         font: 400 1.8vmax "Roboto";
       }
@@ -258,3 +258,4 @@
         margin: 3vmax 0;
       }
   }
+  
