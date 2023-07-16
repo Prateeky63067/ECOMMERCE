@@ -188,6 +188,10 @@
     color: rgba(0, 0, 0, 0.445);
     font: 300 0.8vmax cursive;
   }
+  .reviewCardComment {
+    color: rgba(0, 0, 0, 0.445);
+    font: 300 0.8vmax cursive;
+  }
   
   .noReviews {
     font: 400 1.3vmax "Gill Sans";
@@ -216,9 +220,7 @@
       .detailsBlock-2 {
         justify-content: center;
       }
-      .detailsBlock-2 > span {
-        font-size: 1.5vmax;
-      }
+    
     
       .detailsBlock-3 > h1 {
         font: 700 3vmax "Franklin Gothic Medium";

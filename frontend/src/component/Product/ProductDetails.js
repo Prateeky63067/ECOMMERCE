@@ -42,6 +42,7 @@ const ProductDetails = ({match}) => {
     }
     if (reviewError) {
       alert.error(reviewError);
+     
       dispatch(clearErrors());
     }
     if (success) {
@@ -52,12 +53,13 @@ const ProductDetails = ({match}) => {
   }, [dispatch, id,error,alert,success,reviewError]);
 
   const options = {
-    edit: false,
-    color: "rgba(20,20,20,0.1)",
-    activeColor: "tomato",
-    size: window.innerWidth < 600 ? 20 : 25,
-    value: product.ratings,
-    isHalf: true,
+    
+    
+    // size: "large",
+    // value: product.ratings,
+    value: product ? product.ratings : 0,
+   readOnly:true,
+   precision:0.5,
   };
   const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = useState(false);
@@ -87,11 +89,10 @@ const ProductDetails = ({match}) => {
   };
   const reviewSubmitHandler = () => {
     const myForm = new FormData();
-
     myForm.set("rating", rating);
     myForm.set("comment", comment);
     myForm.set("productId", match.params.id);
-
+     
     dispatch(newReview(myForm));
 
     setOpen(false);
@@ -102,7 +103,7 @@ const ProductDetails = ({match}) => {
   <Fragment>
     {loading ?<Loader/>:(
       <Fragment>
-      <MetaData title={`${product.name} -- ECOMMERCE`}/>
+      <MetaData title={`${product?.name} -- ECOMMERCE`}/>
       <div className="ProductDetails">
         <div className="imageCarousel">
           <Carousel
@@ -127,13 +128,13 @@ const ProductDetails = ({match}) => {
 
         <div>
           <div className="detailsBlock-1">
-            <h2>{product.name}</h2>
+            <h2>{product?.name}</h2>
             <p>Product # {product._id}</p>
           </div>
 
           <div className="detailsBlock-2">
-            <ReactStars {...options} />
-            <span>({product.numOfReviews} Reviews)</span>
+            <Rating {...options} />
+            <span className="detailsBlock-2-span">({product.numOfReviews} Reviews)</span>
           </div>
           <div className="detailsBlock-3">
             <h1>{`₹${product.price}`}</h1>
@@ -210,3 +211,7 @@ const ProductDetails = ({match}) => {
 };
 
 export default ProductDetails;
+
+
+
+
