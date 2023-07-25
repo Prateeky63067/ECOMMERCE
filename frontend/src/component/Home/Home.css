@@ -1,16 +1,21 @@
 .banner {
-    background-image: linear-gradient(to right,#635dc0,#3027ae);
+    /* background-image: linear-gradient(to right,#635dc0,#3027ae); */
+    background-image: url(../../images/imgbck2.jpg);
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
     /* background-image: url("../../images/cover.jfif");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
-    height: 100vmin;
+    height: 110vh;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
     color: white ;
+    
   }
   
   .banner > h1 {
@@ -42,16 +47,18 @@
   .banner::after {
     content: "";
     width: 100vw;
-    height: 125.62vmin;
-    /* height: 144.66vmin; */
+    /* height: 125vmin; */
+    height: 123.9vh;
     background-color: #ffffff;
     position: absolute;
     top: 0%;
     left: 0;
-    clip-path: polygon(100% 73%, 0% 100%, 100% 100%);
+    
+    clip-path: polygon(100% 76%, 0 100%, 100% 100%);
 
 
-
+    
+    
     max-width: 100%;
   }
   
@@ -64,6 +71,7 @@
     padding: 1vmax;
     margin: 5vmax auto;
     color: rgb(0, 0, 0, 0.7);
+    font-weight: bold;
   }
   .container1 {
     display: flex;
@@ -74,18 +82,25 @@
     max-width: 100%;
   }
   .productCard {
-    width: 18vmax;
+    width: 22vmax;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: rgb(48, 48, 48);
-    margin: 2vmax;
+    margin: 1vmax;
     transition: all 0.5s;
     padding-bottom: 0.5vmax;
+    border: solid 2px rgba(128, 128, 128, 0.452);
+    box-sizing: border-box !important;
+    border-radius: 5px;
   }
   .productCard > img {
-    width: 18vmax;
-    height: 200px;
+    width: 22vmax;
+    height: 300px;
+    /* border: solid 1px gray; */
+    padding-right: 4px;
+    
+  text-align: center;
   }
   .productCard > div {
     margin: 0.5vmax;
@@ -96,27 +111,82 @@
   .productCardSpan {
     margin: 0.5vmax;
     font: 300 0.7vmax "Roboto";
+   
   }
   .productCard > p {
     font-family: "Roboto";
     font-size: 1.2vmax;
     margin: 1vmax 0.5vmax;
     margin-bottom: 0;
+    font-weight: bold;
+  }
+  .descriptionClass{
+    font-family: "Roboto" !important;
+    font-size: .8vmax !important;
+    font-weight: 200 !important;
   }
   .productCard > span {
     margin: 0.5vmax;
     color: tomato;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-size: 1vmax;
+    font-weight: 500;
   }
   .productCard:hover {
-    box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
+    box-shadow: 0 0 5px rgba(15, 15, 15, 0.6);
   
     transform: translateY(-1vmax);
   }
+  @media screen and (max-width: 1000px) {
+    .banner::after{
+      height: 110.1vh;
+    }
+    .container1{
+    width: 90%;
+    }
+    .productCard {
+      width: 25vmax;
+    }
+
+    .productCard > img {
+      width: 25vmax;
+      height: 300px;
+    }
+  }
+  @media screen and (max-width: 769px) {
+    .banner::after{
+      height: 110.1vh;
+    }
+    .container1{
+      width: 94%;
+      }
+    .productCard {
+      width: 30vmax;
+    }
+    .productCard>img {
+      width: 30vmax;
+      height: 350px;
+    }
+    .descriptionClass{
+      font-size: 1.2vmax !important;
+    }
+  }
   @media screen and (max-width: 600px) {
+    .banner::after{
+      height: 110vh;
+    }
+    .container1{
+      width: 100%;
+      }
+    .productCard {
+      width: 40vmax;
+    }
+    .productCard>img {
+      width: 40vmax;
+      height: 450px;
+    }
     .productCard > p {
-      font-size: 1.7vmax;
+      font-size: 2.5vmax;
     }
   
     .productCard > div {
@@ -125,11 +195,49 @@
     }
   
     .productCard > span {
-      font-size: 1.5vmax;
+      font-size: 2vmax;
     }
   
     .productCard > div > span {
       margin: 0 0.5vmax;
-      font: 300 1vmax "Roboto";
+      font: 500 1vmax "Roboto";
+    }
+    .MuiRating-root{
+      font-size: 2.5vmax !important;
+    }
+    .descriptionClass{
+      font-size: 1.5vmax !important;
+    }
+  }
+  @media screen and (max-width: 416px) {
+    .banner::after{
+      height: 110.4vh;
+    }
+    .productCard {
+      width: 85%;
+    }
+    .productCard>img {
+      width: 100%;
+      height: 300px;
+    }
+    .productCard > p {
+      font-size: 3vmax;
+    }
+    .productCard > span {
+      font-size: 2.5vmax;
+    }
+    .productCardSpan{
+      font-size: 1.5vmax !important;
+    }
+    .MuiRating-root{
+      font-size: 2.5vmax !important;
+    }
+    .descriptionClass{
+      font-size: 2vmax !important;
+    }
+  }
+  @media (min-width: 1000px) {
+    .banner{
+      margin-top: 80px !important;
     }
   }

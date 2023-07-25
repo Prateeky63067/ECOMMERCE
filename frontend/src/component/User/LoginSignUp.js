@@ -72,6 +72,9 @@ const redirect=location.search?location.search.split("=")[1]:"/account";
 
   useEffect(() => {
     if(error){
+      if(error==="Could not decode base64")
+      alert.error("Please upload image less than 500kb");
+      else
       alert.error(error);
       dispatch(clearErrors());
     }

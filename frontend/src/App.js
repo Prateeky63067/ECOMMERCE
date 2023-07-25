@@ -1,7 +1,8 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import React from "react";
-import Header from "./component/layout/Header/Header.js";
+// import Header from "./component/layout/Header/Header.js";
+import Navbar from "./component/layout/Header/Navbar.js";
 import Footer from "./component/layout/Footer/Footer.js";
 import Home from "./component/Home/Home.js";
 import ProductDetails from "./component/Product/ProductDetails.js";
@@ -57,7 +58,8 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
+        {/* <Header /> */}
+        <Navbar/>
         {isAuthenticated && <UserOptions user={user} />}
 
         {stripeApiKey && (
@@ -112,6 +114,7 @@ function App() {
             window.location.pathname === "/process/payment" ? null : NotFound
           }
         />
+        
 
         </Switch>
         <Footer />

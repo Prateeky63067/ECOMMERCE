@@ -138,3 +138,8 @@
       padding: 1.8vmax;
     }
   }
+  @media (min-width: 1000px) {
+    .newProductContainer{
+      margin-top: 100px !important;
+    }
+  }

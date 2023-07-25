@@ -122,3 +122,8 @@
       margin: 1vmax;
     }
   }
+  @media (min-width: 1000px) {
+    .aboutSection{
+      margin-top: 110px !important;
+    }
+  }

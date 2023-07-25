@@ -126,7 +126,7 @@ const ProductDetails = ({match}) => {
           </Carousel>
         </div>
 
-        <div>
+        <div className="infoBox">
           <div className="detailsBlock-1">
             <h2>{product?.name}</h2>
             <p>Product # {product._id}</p>

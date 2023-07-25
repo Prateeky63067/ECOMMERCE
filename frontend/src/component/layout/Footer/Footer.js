@@ -26,16 +26,16 @@ const Footer = () => {
           <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style={{visibility: 'visible', animationDelay: '0.4s', animationName: 'fadeInLeft'}}>
             <h3 className="f-title f_600 t_color f_size_18">Download</h3>
             <ul className="list-unstyled f_list">
-              <li><NavLink className="nav-link" to="/">
+              <li><NavLink className="nav-link navfoot" to="/">
                     Home 
                   </NavLink></li>
-              <li><NavLink className="nav-link" to="/products">
+              <li><NavLink className="nav-link navfoot" to="/products">
                     Products 
                   </NavLink></li>
-              <li><NavLink className="nav-link" to="/contact">
+              <li><NavLink className="nav-link navfoot" to="/contact">
                     Contact 
                   </NavLink></li>
-              <li><NavLink className="nav-link" to="/">
+              <li><NavLink className="nav-link navfoot" to="/">
                     About 
                   </NavLink></li>
             </ul>
@@ -46,10 +46,10 @@ const Footer = () => {
           <div className="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style={{visibility: 'visible', animationDelay: '0.8s', animationName: 'fadeInLeft'}}>
             <h3 className="f-title f_600 t_color f_size_18">Team Solutions</h3>
             <div className="f_social_icon">
-              <a href="#" className="fab fa-facebook" />
-              <a href="#" className="fab fa-twitter" />
-              <a href="#" className="fab fa-linkedin" />
-              <a href="#" className="fab fa-pinterest" />
+              <a href="https://www.facebook.com/profile.php?id=100024897900259" target='_blank' className="fab fa-facebook" />
+              <a href="https://instagram.com/prateekyadav0212?igshid=MzNlNGNkZWQ4Mg==" target='_blank' className="fab fa-instagram" />
+              <a href="https://www.linkedin.com/in/prateek-yadav-5a4195211" target='_blank' className="fab fa-linkedin" />
+              <a href="https://github.com/Prateeky63067" target='_blank' className="fab fa-github" />
             </div>
           </div>
         </div>

@@ -34,6 +34,7 @@ const UpdatePassword = ({ history }) => {
 
   useEffect(() => {
     if (error) {
+      
       alert.error(error);
       dispatch(clearErrors());
     }

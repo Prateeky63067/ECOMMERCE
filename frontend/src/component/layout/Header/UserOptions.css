@@ -1,10 +1,26 @@
 .speedDial {
     position: fixed;
     right: 3vmax;
-    top: 6.5vmax;
+    top: 4% !important;
   }
   .speedDialIcon {
-    width: 56px;
-    height: 56px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
+  }
+  .MuiButtonBase-root{
+    height: 40px !important;
+    width: 40px !important;
+  }
+  @media (max-width: 1000px) {
+    .speedDial {
+      position: fixed;
+      right: 2vmax;
+      top: 5% !important;
+    }
+  }
+  @media (max-width: 415px) {
+    .speedDial {
+      top: 4vmax !important;
+    }
   }

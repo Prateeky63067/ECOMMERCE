@@ -53,6 +53,10 @@ const UpdateProfile = ({ history }) => {
     }
 
     if (error) {
+      // console.log(error)
+      if(error==="Could not decode base64")
+      alert.error("Please upload image less than 500kb");
+      else
       alert.error(error);
       dispatch(clearErrors());
     }

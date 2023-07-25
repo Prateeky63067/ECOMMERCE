@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
+    margin-top: 150px !important;
     
   }
   .orderSuccess > svg {
@@ -43,3 +43,5 @@
       font-size: 5vw;
     }
   }
+
+ 

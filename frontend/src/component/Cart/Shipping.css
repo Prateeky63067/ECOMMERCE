@@ -5,8 +5,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 150px !important;
   }
   
+  .MuiPaper-root{
+    display: none !important;
+  }
   .shippingBox {
     background-color: white;
     width: 25vw;

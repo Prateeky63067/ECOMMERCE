@@ -26,3 +26,9 @@
       transform: translateX(0);
     }
   }
+
+  @media (min-width: 1000px) {
+    .contactContainer{
+      margin-top: 110px !important;
+    }
+  }

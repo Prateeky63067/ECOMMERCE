@@ -1,5 +1,6 @@
 .orderDetailsPage {
     background-color: white;
+    margin-top: 100px !important;
   }
   
   .orderDetailsContainer > h1 {
@@ -107,3 +108,5 @@
       font: 100 4vw "Roboto";
     }
   }
+
+ 

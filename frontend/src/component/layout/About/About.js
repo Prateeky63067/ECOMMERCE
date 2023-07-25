@@ -3,9 +3,10 @@ import "./aboutSection.css";
 import { Button, Typography, Avatar } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import FacebookIcon from "@material-ui/icons/Facebook";
 const About = () => {
   const visitInstagram = () => {
-    window.location = "";
+    window.location = "https://instagram.com/prateekyadav0212?igshid=MzNlNGNkZWQ4Mg==";
   };
   return (
     <div className="aboutSection">
@@ -18,7 +19,7 @@ const About = () => {
           <div>
             <Avatar
               style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
-              src=""
+              src="https://res.cloudinary.com/dgjklzelu/image/upload/v1690120345/avatars/sbchts4lzxkmtai8svio.jpg"
               alt="Founder"
             />
             <Typography>Prateek Yadav</Typography>
@@ -33,13 +34,13 @@ const About = () => {
           <div className="aboutSectionContainer2">
             <Typography component="h2">Our Brands</Typography>
             <a
-              href=""
+              href="https://www.facebook.com/profile.php?id=100024897900259"
               target="blank"
             >
-              <YouTubeIcon className="youtubeSvgIcon" />
+              <FacebookIcon className="facebookIcon" />
             </a>
 
-            <a href="" target="blank">
+            <a href="https://instagram.com/prateekyadav0212?igshid=MzNlNGNkZWQ4Mg==" target="blank">
               <InstagramIcon className="instagramSvgIcon" />
             </a>
           </div>

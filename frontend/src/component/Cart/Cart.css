@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 110px !important;
   }
   .emptyCart > svg {
     font-size: 5vmax;
@@ -27,6 +28,7 @@
   
   .cartPage {
     padding: 5vmax;
+    margin-top: 110px !important;
     
   }
   
@@ -177,3 +179,5 @@
       font: 300 2vmax "Roboto";
     }
   }
+
+  

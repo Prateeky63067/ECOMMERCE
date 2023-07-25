@@ -1,0 +1,50 @@
+.navbar{
+    padding: 20px 0px;
+    background-color: #131921 !important;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+}
+.imglogo{
+    width: 40px;
+    height: 100%;
+    opacity: 0.7;
+}  
+.navbar{
+    padding-left: 30px;
+}
+@media (min-width: 1000px) {
+    #navbarSupportedContent{
+        display: flex !important;
+        justify-content: space-evenly !important;
+    }
+   
+    
+}
+@media (max-width: 1000px) {
+    .imglogo{
+        display: none;
+    }
+   .navbar-toggler-icon{
+    background-color: wheat;
+   }
+      .navbar-brand{
+        display: none !important;
+      }
+      .navbar{
+        padding-right: 25px;
+        padding-left: 10px;
+      }
+      
+}
+
+.nav-link{
+    color: wheat !important;
+    font-size: 20px !important;
+}
+
+.nav-link:hover{
+    color: tomato !important;
+}

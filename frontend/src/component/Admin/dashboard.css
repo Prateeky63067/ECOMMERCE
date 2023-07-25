@@ -98,3 +98,8 @@
       font: 300 0.9rem "Roboto";
     }
   }
+  @media (min-width: 1000px) {
+    .dashboard{
+      margin-top: 100px !important;
+    }
+  }

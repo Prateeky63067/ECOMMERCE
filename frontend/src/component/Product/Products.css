@@ -4,7 +4,9 @@
    justify-content: center;
    align-items: center;
    flex-direction: column;
+   margin-top: 130px !important;
 }
+
 .productsHeading {
     margin: 2vmax auto;
     width: 15vw;
@@ -18,11 +20,11 @@
   .products {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 5vmax;
+    padding-left: 10vmax;
     justify-content: center;
     min-height: 30vh;
+    width: 95%;
     
-    width: 80%;
   }
   .paginationBox {
     display: flex;
@@ -106,5 +108,9 @@
     .category-link{
       font: 400 2vmax "Roboto";
     }
+    .products{
+    padding-left: 0;
+    }
   
   }
+ 

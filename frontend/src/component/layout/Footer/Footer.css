@@ -220,5 +220,10 @@ h1, h2, h3, h4, h5, h6 {
   .midfoot{
    text-align: center;
   }
+
+  .navfoot{
+    color: black !important;
+    font-size: 16px !important;
+  }
 /*************footer End*****************/
 

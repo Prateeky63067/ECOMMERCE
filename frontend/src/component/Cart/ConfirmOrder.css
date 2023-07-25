@@ -3,6 +3,7 @@
     background-color: white;
     display: grid;
     grid-template-columns: 6fr 3fr;
+    margin-top: 100px !important;
   }
   
   .confirmOrderPage > div:last-child {
@@ -201,3 +202,4 @@
       font: 400 4vw "Roboto";
     }
   }
+  
